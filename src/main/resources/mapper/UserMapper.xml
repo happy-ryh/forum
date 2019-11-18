@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	" http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.swjtuhc.mapper.UserMapper">
+<!-- mapper namespace="ssm.mapper.UserMapper" 对应的接口"ssm.mapper.UserMapper
+	 <resultMap type="ssm.model.SysUser" id="user_Map" 类型是ssm.model.SysUser 连接user_Map
+	 <result column="username" 数据库属性 property="username" JAVA名称 javaType="java.lang.String" JAVA类型 jdbcType="VARCHAR" 数据库类型/>
+	 <select id="selectuserByUsername" 接口方法名称 parameterType="java.lang.String"JAVA类型 resultMap="user_Map"连接ID>
+	 -->
+	  
+	  
+	  
+	  
+	<resultMap type="edu.swjtuhc.model.SysUser" id="user_Map">
+		<result column="username" property="username" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result column="password" property="password" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result column="name" property="name" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result column="age" property="age" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+		<result column="gender" property="gender" javaType="java.lang.String" jdbcType="VARCHAR"/>
+	</resultMap>
+	<select id="selectAllUsers" resultMap="user_Map">
+		select * from sysuser
+	</select>
+	
+	
+</mapper>
