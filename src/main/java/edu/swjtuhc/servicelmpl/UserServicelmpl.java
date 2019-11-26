@@ -19,4 +19,10 @@ public class UserServicelmpl implements UserService{
 		return UserMapper.selectAllUsers();
 	}
 
+	@Override
+	public int getChaRuuser(SysUser sysuser){
+		// TODO Auto-generated method stub
+		return UserMapper.chaRuUser(sysuser);
+	}
+
 }

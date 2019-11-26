@@ -19,8 +19,14 @@ public class controller {
 	@Autowired
 	UserService userSerivce;
 	
-	@RequestMapping("getAll")
+	@RequestMapping("/getAll")
 	public List<SysUser> getAll(){
 		return userSerivce.grtAllUser();
 	}
+	@RequestMapping("/ChaRu")
+	public int Charu(SysUser sysUser) {
+		int i = userSerivce.getChaRuuser(sysUser);
+		return i;
+	}
 }
+

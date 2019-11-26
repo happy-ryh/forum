@@ -11,4 +11,5 @@ public interface UserMapper {
 	
 	
 	public List<SysUser> selectAllUsers();
+	public int chaRuUser(SysUser sysUser);
 }
