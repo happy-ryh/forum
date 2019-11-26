@@ -7,5 +7,5 @@ import edu.swjtuhc.model.SysUser;
 public interface UserService {
 	
 	public List<SysUser> grtAllUser();
-	public String LoginUser(String  username,String password);
+	public int getChaRuuser(SysUser sysUser);
 }

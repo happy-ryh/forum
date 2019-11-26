@@ -19,8 +19,9 @@ public class controller {
 	@Autowired
 	UserService userSerivce;
 	
-	@RequestMapping("getAll")
+	@RequestMapping("/getAll")
 	public List<SysUser> getAll(){
 		return userSerivce.grtAllUser();
 	}
 }
+

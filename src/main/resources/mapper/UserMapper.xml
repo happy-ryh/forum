@@ -12,15 +12,21 @@
 	  
 	  
 	<resultMap type="edu.swjtuhc.model.SysUser" id="user_Map">
-		<result column="username" property="username" javaType="java.lang.String" jdbcType="VARCHAR"/>
-		<result column="password" property="password" javaType="java.lang.String" jdbcType="VARCHAR"/>
-		<result column="name" property="name" javaType="java.lang.String" jdbcType="VARCHAR"/>
-		<result column="age" property="age" javaType="java.lang.Integer" jdbcType="INTEGER"/>
-		<result column="gender" property="gender" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result column="userName" property="username" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result column="userPassword" property="password" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result column="userAge" property="age" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+		<result column="userBirthday" property="userBirthday" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+		<result column="userBlood" property="userBlood" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result column="userLocal" property="userLocal" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result column="uerConstellation" property="uerConstellation" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result column="userSchool" property="userSchool" javaType="java.lang.String" jdbcType="VARCHAR"/>
 	</resultMap>
 	<select id="selectAllUsers" resultMap="user_Map">
-		select * from sysuser
+		select * from bbsuser
 	</select>
-	
+	<insert id="chaRuUser" parameterType="edu.swjtuhc.model.SysUser">
+		INSERT INTO bbsuser VALUES 
+		(#{userName},#{userBirthday},#{userAge},#{uerConstellation},#{userBlood},#{userLocal},#{userSchool},#{userPassword})
+	</insert>
 	
 </mapper>
