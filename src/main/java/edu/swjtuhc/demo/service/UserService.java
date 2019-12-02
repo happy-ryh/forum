@@ -1,11 +1,12 @@
-package edu.swjtuhc.service;
+package edu.swjtuhc.demo.service;
 
 import java.util.List;
 
-import edu.swjtuhc.model.SysUser;
+
+import edu.swjtuhc.demo.model.SysUser;
 
 public interface UserService {
-	
+	public List<SysUser> getLogin(String username);
 	public List<SysUser> grtAllUser();
 	public int getChaRuuser(SysUser sysUser);
 }

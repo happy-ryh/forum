@@ -1,4 +1,4 @@
-package edu.swjtuhc.model;
+package edu.swjtuhc.demo.model;
 
 public class SysUser {
 	private String username;

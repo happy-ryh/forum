@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 	" http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="edu.swjtuhc.mapper.UserMapper">
+<mapper namespace="edu.swjtuhc.demo.mapper.UserMapper">
 <!-- mapper namespace="ssm.mapper.UserMapper" 对应的接口"ssm.mapper.UserMapper
 	 <resultMap type="ssm.model.SysUser" id="user_Map" 类型是ssm.model.SysUser 连接user_Map
 	 <result column="username" 数据库属性 property="username" JAVA名称 javaType="java.lang.String" JAVA类型 jdbcType="VARCHAR" 数据库类型/>
@@ -11,8 +11,8 @@
 	  
 	  
 	  
-	<resultMap type="edu.swjtuhc.model.SysUser" id="user_Map">
-		<result column="userName" property="username" javaType="java.lang.String" jdbcType="VARCHAR"/>
+	<resultMap type="edu.swjtuhc.demo.model.SysUser" id="user_Map">
+		<result column="username" property="username" javaType="java.lang.String" jdbcType="VARCHAR"/>
 		<result column="userPassword" property="password" javaType="java.lang.String" jdbcType="VARCHAR"/>
 		<result column="userAge" property="age" javaType="java.lang.Integer" jdbcType="INTEGER"/>
 		<result column="userBirthday" property="userBirthday" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
@@ -24,9 +24,14 @@
 	<select id="selectAllUsers" resultMap="user_Map">
 		select * from bbsuser
 	</select>
-	<insert id="chaRuUser" parameterType="edu.swjtuhc.model.SysUser">
-		INSERT INTO bbsuser VALUES 
-		(#{userName},#{userBirthday},#{userAge},#{uerConstellation},#{userBlood},#{userLocal},#{userSchool},#{userPassword})
+	<insert id="chaRuUser" parameterType="edu.swjtuhc.demo.model.SysUser">
+		INSERT INTO bbsuser
+		(userName,userBirthday,userAge,uerConstellation,userBlood,userLocal,userSchool,userPassword)
+		VALUES 
+		(#{username},#{birthday},#{age},#{constellation},#{blood},#{local},#{school},#{password})
 	</insert>
+	<select id="userLogin" resultMap="user_Map">
+		select * from bbsuser where username=#{username}
+	</select>
 	
 </mapper>

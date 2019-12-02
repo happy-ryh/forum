@@ -1,13 +1,14 @@
-package edu.swjtuhc.servicelmpl;
+package edu.swjtuhc.demo.servicelmpl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import edu.swjtuhc.mapper.UserMapper;
-import edu.swjtuhc.model.SysUser;
-import edu.swjtuhc.service.UserService;
-
+import edu.swjtuhc.demo.mapper.UserMapper;
+import edu.swjtuhc.demo.model.SysUser;
+import edu.swjtuhc.demo.service.UserService;
+@Service
 public class UserServicelmpl implements UserService{
 	
 	@Autowired
@@ -23,6 +24,12 @@ public class UserServicelmpl implements UserService{
 	public int getChaRuuser(SysUser sysuser){
 		// TODO Auto-generated method stub
 		return UserMapper.chaRuUser(sysuser);
+	}
+
+	@Override
+	public List<SysUser> getLogin(String username) {
+		// TODO Auto-generated method stub
+		return UserMapper.userLogin(username);
 	}
 
 }
