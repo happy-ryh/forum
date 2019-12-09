@@ -5,10 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.swjtuhc.demo.model.SysUser;
 import edu.swjtuhc.demo.service.UserService;
+import net.sf.json.JSONObject;
 
 //json数据格式
 //restful风格
@@ -21,25 +23,38 @@ public class controller {
 	UserService userSerivce;
 	
 	@RequestMapping("/getAll")
-	public List<SysUser> getAll(){
-		return userSerivce.grtAllUser();
+	public JSONObject getAll(){
+		JSONObject result = new JSONObject();
+		List<SysUser> user = userSerivce.grtAllUser();
+		System.out.println(user);
+		result.put("state", user.toString());
+		return result;
 	}
 	@RequestMapping("/ChaRu")
-	public int Charu(@RequestBody SysUser sysUser) {
-		System.out.println(sysUser.getPassword());
+	public JSONObject Charu(@RequestBody SysUser sysUser) {
+		JSONObject result = new JSONObject();
 		int i = userSerivce.getChaRuuser(sysUser);
-		return i;
+		result.put("state", i);
+		return result;
 	}
 	@RequestMapping("/Login")
-	public String uLogin(@RequestBody String username,String password){
-		List<SysUser> user=userSerivce.getLogin(username);
-		if (password==user.get(0).getPassword()){
-			return "登录成功";
+	
+	public JSONObject uLogin(@RequestBody SysUser user){
+		JSONObject result = new JSONObject();
+		SysUser use = userSerivce.getLogin(user.getUsername());
+		if(use==null) {
+			result.put("state", "没有这个用户");
+			return result;
 		}else {
-			return "登录失败";
+
+			if (use.getUserPassword().equals(user.getUserPassword())){
+				result.put("state", "登录成功");
+				return result;
+			}else {
+				result.put("state", "密码错误");
+				return result;
+			}
 		}
-		
-		
 	}
 }
 

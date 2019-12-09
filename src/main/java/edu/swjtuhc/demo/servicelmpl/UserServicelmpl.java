@@ -27,7 +27,7 @@ public class UserServicelmpl implements UserService{
 	}
 
 	@Override
-	public List<SysUser> getLogin(String username) {
+	public SysUser getLogin(String username) {
 		// TODO Auto-generated method stub
 		return UserMapper.userLogin(username);
 	}

@@ -6,7 +6,7 @@ import java.util.List;
 import edu.swjtuhc.demo.model.SysUser;
 
 public interface UserService {
-	public List<SysUser> getLogin(String username);
+	public SysUser getLogin(String username);
 	public List<SysUser> grtAllUser();
 	public int getChaRuuser(SysUser sysUser);
 }
