@@ -26,7 +26,6 @@ public class controller {
 	public JSONObject getAll(){
 		JSONObject result = new JSONObject();
 		List<SysUser> user = userSerivce.grtAllUser();
-		System.out.println(user);
 		result.put("state", user.toString());
 		return result;
 	}
