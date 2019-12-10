@@ -1,18 +1,7 @@
-<<<<<<< HEAD
-spring:
-  datasource:    username: root
-    password: 19980715
-    url: jdbc:mysql://localhost:3306/test?useSSL=false&amp;serverTimezone=GMT%2B8
-=======
 #配置数据库
 spring:  datasource:    username: root
     password: 1677903966
-<<<<<<< HEAD
-    url: jdbc:mysql://localhost:3306/forum?useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
-=======
     url: jdbc:mysql://localhost:3306/forum?useSSL=false&amp;serverTimezone=GMT%2B8&amp;allowPublicKeyRetrieval=true
->>>>>>> branch 'master' of https://github.com/happy-ryh/forum.git
->>>>>>> branch 'master' of https://github.com/happy-ryh/forum.git
     driver-class-name: com.mysql.cj.jdbc.Driver
     
 mybatis:
