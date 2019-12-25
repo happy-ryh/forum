@@ -37,7 +37,6 @@ public class controller {
 		return result;
 	}
 	@RequestMapping("/Login")
-	
 	public JSONObject uLogin(@RequestBody SysUser user){
 		JSONObject result = new JSONObject();
 		SysUser use = userSerivce.getLogin(user.getUsername());
@@ -55,5 +54,25 @@ public class controller {
 			}
 		}
 	}
-}
+	@RequestMapping("/CXUser")
+	public JSONObject CXUser(@RequestBody SysUser sysUser) {
+		JSONObject result = new JSONObject();
+		result.put("state",userSerivce.getcxuser(sysUser.getUsername()));
+		return result;
+	}
 
+	@RequestMapping("/XGuserpassword")
+	public JSONObject XGuserpassword(@RequestBody SysUser sysUser) {
+		JSONObject result = new JSONObject();
+		SysUser use = userSerivce.getcxuser(sysUser.getUsername());
+		if (sysUser.getUserPhone()==use.getUserPhone()) {
+			result.put("state",userSerivce.getXGuserpassword(sysUser));
+		} else {
+			result.put("state","电话错误");
+		}
+		return result;
+		
+		
+		
+	}
+}

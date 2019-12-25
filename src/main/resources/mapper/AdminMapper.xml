@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	" http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.swjtuhc.demo.mapper.AdminMapper">
+<!-- mapper namespace="ssm.mapper.UserMapper" 对应的接口"ssm.mapper.UserMapper
+	 <resultMap type="ssm.model.SysUser" id="user_Map" 类型是ssm.model.SysUser 连接user_Map
+	 <result column="username" 数据库属性 property="username" JAVA名称 javaType="java.lang.String" JAVA类型 jdbcType="VARCHAR" 数据库类型/>
+	 <select id="selectuserByUsername" 接口方法名称 parameterType="java.lang.String"JAVA类型 resultMap="user_Map"连接ID>
+	 -->
+	  
+	  
+	  
+	  
+	<resultMap type="edu.swjtuhc.demo.model.admin" id="admin_Map">
+		<result column="adminGrade" property="adminGrade" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result column="adminPassword" property="adminPassword" javaType="java.lang.String" jdbcType="VARCHAR"/>
+		<result column="adminAccount" property="adminAccount" javaType="java.lang.String" jdbcType="VARCHAR"/>
+	</resultMap>
+	<select id="selectadminGrade" resultMap="admin_Map">
+		SELECT adminGrade FROM admininformation
+		WHERE adminAccount = #{adminAccount} 
+	</select>
+	<insert id="chaRuAdmin" parameterType="edu.swjtuhc.demo.model.admin">
+		INSERT INTO admininformation
+		(adminPassword,adminAccount)
+		VALUES 
+		(#{adminPassword},#{adminAccount})
+	</insert>
+</mapper>

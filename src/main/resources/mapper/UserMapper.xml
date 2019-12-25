@@ -35,5 +35,10 @@
 	<select id="userLogin" resultMap="user_Map">
 		select * from bbsuser where username=#{username}
 	</select>
-	
+	<select id="cxuser" resultMap="user_Map">
+		select * from bbsuser where username=#{username}
+	</select>
+	<update id="xgpassword" parameterType="edu.swjtuhc.demo.model.SysUser">
+		update bbsuser set userPassword=#{userPassword} where username=#{username}
+	</update>
 </mapper>

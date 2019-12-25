@@ -32,4 +32,16 @@ public class UserServicelmpl implements UserService{
 		return UserMapper.userLogin(username);
 	}
 
+	@Override
+	public SysUser getcxuser(String username) {
+		// TODO Auto-generated method stub
+		return UserMapper.cxuser(username);
+	}
+
+	@Override
+	public int getXGuserpassword(SysUser sysuser) {
+		// TODO Auto-generated method stub
+		return UserMapper.xgpassword(sysuser);
+	}
+
 }
