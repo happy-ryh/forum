@@ -8,4 +8,5 @@ import edu.swjtuhc.demo.model.admin;
 public interface AdminMapper {
 	public admin selectadminGrade(String adminAccount);
 	public int chaRuAdmin(admin admin);
+	public admin adminlogin(String adminAccount);
 }

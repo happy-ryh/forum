@@ -26,4 +26,7 @@
 		VALUES 
 		(#{adminPassword},#{adminAccount})
 	</insert>
+	<select id="adminlogin" resultMap="admin_Map">
+		select * from admininformation where adminAccount = #{adminAccount} 
+	</select>
 </mapper>

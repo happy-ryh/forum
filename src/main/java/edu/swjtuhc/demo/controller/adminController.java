@@ -32,7 +32,24 @@ public class adminController {
 		return result;
 		
 	}
-	
+	@RequestMapping("/adminlogin")
+	public JSONObject adminlogin(@RequestBody admin admin) {
+		JSONObject result = new JSONObject();
+		admin ad = adminSerivce.getadminlogin(admin.getAdminAccount());
+		int i;
+		if (ad==null) {
+			i=2;
+		} else {
+			if (ad.getAdminPassword().equals(admin.getAdminPassword())) {
+				i=1;
+			} else {
+				i=2;
+			}
+		}
+				
+		result.put("state", i);
+		return result;
+	}
 		
 	
 }

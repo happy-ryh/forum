@@ -71,8 +71,6 @@ public class controller {
 			result.put("state","电话错误");
 		}
 		return result;
-		
-		
-		
+			
 	}
 }
