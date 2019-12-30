@@ -29,5 +29,11 @@ public class AdminServicelmpl implements AdminService{
 		// TODO Auto-generated method stub
 		return adminmapper.adminlogin(adminAccount);
 	}
+
+	@Override
+	public int scadmin(String adminAccount) {
+		// TODO Auto-generated method stub
+		return adminmapper.scadmin(adminAccount);
+	}
 	
 }

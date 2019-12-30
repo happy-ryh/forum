@@ -50,7 +50,21 @@ public class adminController {
 		result.put("state", i);
 		return result;
 	}
+	
+	@RequestMapping("/scgly")
+	public JSONObject scgly(@RequestBody admin admin) {
+		JSONObject result = new JSONObject();
+		int i;
+		if (adminSerivce.getadminlogin(admin.getAdminAccount())==null) {
+			i=2;
+		} else {
+			i = adminSerivce.scadmin(admin.getAdminAccount());
+		}
+		result.put("state", i);
 		
+		return result;
+		
+	}
 	
 }
 

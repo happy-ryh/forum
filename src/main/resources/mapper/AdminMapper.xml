@@ -29,4 +29,7 @@
 	<select id="adminlogin" resultMap="admin_Map">
 		select * from admininformation where adminAccount = #{adminAccount} 
 	</select>
+	<delete id="scadmin" parameterType="edu.swjtuhc.demo.model.admin">
+		delete from admininformation where adminAccount = #{adminAccount}
+	</delete>
 </mapper>

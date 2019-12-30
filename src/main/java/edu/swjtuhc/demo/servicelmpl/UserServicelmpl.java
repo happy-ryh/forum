@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import edu.swjtuhc.demo.mapper.UserMapper;
 import edu.swjtuhc.demo.model.SysUser;
+import edu.swjtuhc.demo.model.tizi;
 import edu.swjtuhc.demo.service.UserService;
 @Service
 public class UserServicelmpl implements UserService{
@@ -42,6 +43,12 @@ public class UserServicelmpl implements UserService{
 	public int getXGuserpassword(SysUser sysuser) {
 		// TODO Auto-generated method stub
 		return UserMapper.xgpassword(sysuser);
+	}
+
+	@Override
+	public int scuser(String username) {
+		// TODO Auto-generated method stub
+		return UserMapper.scuser(username);
 	}
 
 }
