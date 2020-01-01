@@ -41,15 +41,15 @@ public class controller {
 		JSONObject result = new JSONObject();
 		SysUser use = userSerivce.getLogin(user.getUsername());
 		if(use==null) {
-			result.put("state", "没有这个用户");
+			result.put("state", "3");
 			return result;
 		}else {
 
 			if (use.getUserPassword().equals(user.getUserPassword())){
-				result.put("state", "登录成功");
+				result.put("state", "1");
 				return result;
 			}else {
-				result.put("state", "密码错误");
+				result.put("state", "2");
 				return result;
 			}
 		}
@@ -68,7 +68,7 @@ public class controller {
 		if (sysUser.getUserPhone()==use.getUserPhone()) {
 			result.put("state",userSerivce.getXGuserpassword(sysUser));
 		} else {
-			result.put("state","电话错误");
+			result.put("state","2");
 		}
 		return result;
 		

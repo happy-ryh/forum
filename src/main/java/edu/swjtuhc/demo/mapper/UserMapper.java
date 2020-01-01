@@ -13,5 +13,5 @@ public interface UserMapper {
 	public SysUser cxuser(String username);
 	public List<SysUser> selectAllUsers();
 	public int chaRuUser(SysUser sysUser);
-	public int xgpassword(SysUser sysUser);
+	public int xgpassword(SysUser sysUser); 
 }
