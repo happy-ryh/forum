@@ -41,4 +41,8 @@
 	<update id="xgpassword" parameterType="edu.swjtuhc.demo.model.SysUser">
 		update bbsuser set userPassword=#{userPassword} where username=#{username}
 	</update>
+	<delete id="scuser" parameterType="edu.swjtuhc.demo.model.SysUser">
+		delete from bbsuser where username=#{username}
+	</delete>
+
 </mapper>

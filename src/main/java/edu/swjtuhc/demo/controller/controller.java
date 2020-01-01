@@ -41,15 +41,15 @@ public class controller {
 		JSONObject result = new JSONObject();
 		SysUser use = userSerivce.getLogin(user.getUsername());
 		if(use==null) {
-			result.put("state", "3");
+			result.put("state", 3);
 			return result;
 		}else {
 
 			if (use.getUserPassword().equals(user.getUserPassword())){
-				result.put("state", "1");
+				result.put("state", 1);
 				return result;
 			}else {
-				result.put("state", "2");
+				result.put("state", 2);
 				return result;
 			}
 		}
@@ -68,11 +68,23 @@ public class controller {
 		if (sysUser.getUserPhone()==use.getUserPhone()) {
 			result.put("state",userSerivce.getXGuserpassword(sysUser));
 		} else {
-			result.put("state","2");
+			result.put("state",2);
 		}
 		return result;
-		
-		
-		
+			
 	}
+	
+	@RequestMapping("/sczh")
+	public JSONObject sczh(@RequestBody SysUser sysUser) {
+		JSONObject result = new JSONObject();
+		int i;
+		if (userSerivce.getcxuser(sysUser.getUsername())==null) {
+			i=2;
+		} else {
+			i = userSerivce.scuser(sysUser.getUsername());
+		}
+		result.put("state", i);
+		return result;
+	}
+	
 }
